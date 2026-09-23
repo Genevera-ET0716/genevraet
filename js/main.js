@@ -14,6 +14,47 @@ document.querySelectorAll('.more-work').forEach((details) => {
   details.classList.add('has-show-less');
 });
 
+const drawingFields = document.querySelectorAll('.drawing-field');
+
+function layoutDrawingField(field) {
+  const styles = getComputedStyle(field);
+  const rowHeight = parseFloat(styles.gridAutoRows);
+
+  field.querySelectorAll('.artwork').forEach((item) => {
+    item.style.gridRowEnd = 'auto';
+  });
+
+  field.querySelectorAll('.artwork').forEach((item) => {
+    const height = item.getBoundingClientRect().height;
+    const itemGap = parseFloat(getComputedStyle(item).marginBottom);
+    item.style.gridRowEnd = `span ${Math.ceil((height + itemGap) / rowHeight)}`;
+  });
+}
+
+function layoutDrawings() {
+  drawingFields.forEach((field) => {
+    if (field.getClientRects().length) layoutDrawingField(field);
+  });
+}
+
+if (drawingFields.length) {
+  layoutDrawings();
+  window.addEventListener('load', layoutDrawings);
+  window.addEventListener('resize', layoutDrawings);
+
+  drawingFields.forEach((field) => {
+    field.querySelectorAll('img').forEach((image) => {
+      if (!image.complete) image.addEventListener('load', layoutDrawings, { once: true });
+    });
+  });
+
+  document.querySelectorAll('.more-work').forEach((details) => {
+    details.addEventListener('toggle', () => {
+      if (details.open) requestAnimationFrame(layoutDrawings);
+    });
+  });
+}
+
 if (dialog) {
   const enlarged = dialog.querySelector('img');
   const close = dialog.querySelector('.lightbox-close');
