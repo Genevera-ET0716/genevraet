@@ -65,8 +65,9 @@ h1 { grid-area: name; font-weight: 500; font-size: clamp(3.4rem, 10.5vw, 7.5rem)
 .page { padding: clamp(3rem, 8vw, 6rem) 0 clamp(4rem, 9vw, 7rem); border-bottom: 1px solid var(--hairline); }
 .page h1 { font-size: clamp(2.4rem, 7vw, 4.5rem); }
 .page p { margin: 1.25rem 0 0; color: var(--soft); }
-.myanetherflow-page p { max-width: 36rem; }
-.myanetherflow-cat { width: min(100%, 14.67rem); margin-top: clamp(2.5rem, 6vw, 4rem); }
+.myanetherflow-intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2rem 4rem; align-items: start; margin-top: clamp(2.5rem, 6vw, 4rem); }
+.myanetherflow-intro p { max-width: 30rem; margin-top: 2rem; }
+.myanetherflow-cat { width: min(100%, 14.67rem); }
 nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
 
 /* research */
@@ -147,6 +148,9 @@ footer .copy { color: var(--soft); font-size: 0.95rem; margin: 0; }
 .lightbox img { max-width: 100%; max-height: calc(92vh - 5rem); width: auto; height: auto; object-fit: contain; }
 .lightbox-close { position: absolute; top: 0; right: 0; width: 2.5rem; height: 2.5rem; border: 0; background: var(--paper); color: var(--ink); font: 2rem/1 var(--site-font); cursor: pointer; }
 @media (max-width: 42rem) {
+  .myanetherflow-intro { grid-template-columns: 1fr; }
+  .myanetherflow-intro p { margin-top: 0; }
+  .myanetherflow-cat { justify-self: end; }
   .forest-stories { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 1rem; }
   .hobby-row { grid-template-columns: 1fr; gap: 0.7rem; }
   .photo-category { grid-template-columns: 1fr; gap: 1rem; }
