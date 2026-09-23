@@ -59,6 +59,7 @@ if (dialog) {
   const enlarged = dialog.querySelector('img');
   const close = dialog.querySelector('.lightbox-close');
   const artworks = [...document.querySelectorAll('[data-lightbox]')];
+  const stage = document.createElement('div');
   const previous = document.createElement('button');
   const next = document.createElement('button');
   let currentIndex = 0;
@@ -73,7 +74,9 @@ if (dialog) {
   next.setAttribute('aria-label', 'Next image');
   next.textContent = '→';
 
-  dialog.append(previous, next);
+  stage.className = 'lightbox-stage';
+  stage.append(previous, enlarged, next);
+  dialog.append(stage);
 
   function showImage(index) {
     currentIndex = (index + artworks.length) % artworks.length;
