@@ -154,7 +154,7 @@ footer .copy { color: var(--soft); font-size: 0.95rem; margin: 0; }
 .more-work.has-show-less[open] summary { display: none; }
 .more-work .show-less { display: none; border: 0; border-bottom: 1px solid var(--ink); padding: 0; background: none; color: inherit; font: 1.55rem/1.2 var(--site-font); cursor: pointer; }
 .more-work.has-show-less[open] .show-less { display: inline-block; margin-top: 2rem; }
-.drawing-field { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1.5rem, 3vw, 2.5rem); align-items: center; padding: 1rem 0; max-width: 54rem; margin-inline: auto; }
+.drawing-field { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.5rem; align-items: start; padding: 1rem 0; max-width: 54rem; margin-inline: auto; }
 .drawing-field .artwork img { width: 100%; height: auto; }
 .lightbox { border: 0; padding: 2.5rem; max-width: min(92vw, 82rem); max-height: 92vh; background: var(--paper); color: var(--ink); }
 .lightbox::backdrop { background: rgb(0 0 0 / 82%); }
